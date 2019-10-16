@@ -1,0 +1,2 @@
+include ':app', ':server', ':proto'
+rootProject.name='android-http2-protobuf'

@@ -1,0 +1,22 @@
+syntax = "proto3";
+package cl.svasquezm.android_http2_protobuf;
+
+message Pet {
+   string type = 1;
+   string name = 2;
+}
+
+message User {
+   string name = 1;
+   string email = 2;
+
+   enum Type {
+      WEB = 0;
+      MOBILE = 1;
+      ADMIN = 2;
+   }
+
+   Type type = 3;
+
+   repeated Pet pets = 4;
+}
