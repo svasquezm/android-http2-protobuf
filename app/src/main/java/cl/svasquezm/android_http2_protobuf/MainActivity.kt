@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.run {
             launch {
                 val protocolList = mutableListOf<Protocol>()
+                //protocolList.add(Protocol.HTTP_1_1)
                 protocolList.add(Protocol.H2_PRIOR_KNOWLEDGE)
 
                 val client = OkHttpClient.Builder().apply {
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 }.build()
 
                 val request = Request.Builder()
-                    .url("http://127.0.0.1")
+                    .url("http://192.168.1.82")
                     .build()
 
                 val response = client.newCall(request).execute()
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                     Log.i(TAG, " ${it.first}: ${it.second} ")
                 }
 
-                Log.i(TAG, "Protocol: ${response.protocol.name} ${response.protocol.ordinal}")
+                Log.i(TAG, "Protocol: ${response.protocol.name}")
 
 
                 val user = Models.User.parseFrom(response.body!!.bytes())

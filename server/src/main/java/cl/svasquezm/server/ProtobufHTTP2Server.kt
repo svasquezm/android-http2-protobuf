@@ -50,7 +50,7 @@ class ProtobufHTTP2Server {
             return Server().apply {
 
                 //HTTP/2 Connector
-                addConnector(ServerConnector(server, http2).apply {
+                addConnector(ServerConnector(server, http1, http2).apply {
                     port = 80
                 })
             }
